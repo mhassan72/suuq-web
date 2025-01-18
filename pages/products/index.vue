@@ -2,6 +2,7 @@
 <div>
     <TopNavbar />
     <NabarTopMobile />
+    <MobileTabs />
     <div class="page_container">
         <!-- Show all  categories here  -->
         <div class="categories"></div>
@@ -17,6 +18,7 @@
 </template>
 <script lang="ts" setup>
 import TopNavbar from '../../components/navigation/TopNavbar.vue'
+import MobileTabs from '../../components/navigation/MobileTabs.vue'
 import NabarTopMobile from '../../components/navigation/NabarTopMobile.vue'
 import { products, searchProducts } from '../../composables/SearchProducts';
 import ProductListItem from '../../components/products/ProductListItem.vue'

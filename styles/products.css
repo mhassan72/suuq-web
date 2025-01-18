@@ -23,6 +23,8 @@ body {
     overflow: hidden;
     background: #c8d6e5;
     border-radius: 3px;
+    background-position: top center;
+    background-size: cover;
 }
 
 .page_container .products .item .context .title {
@@ -79,6 +81,28 @@ body {
     align-items: center;
     gap: 6px;
 }
+
+.page_container .products .item .product-list-item .seller .context .right {
+    display: flex;
+    gap: 10px;
+}
+
+.page_container .products .item .product-list-item .seller .context .right .ratings #icon-star-full {
+    color: #ff6b6b !important;
+}
+
+.page_container .products .item .product-list-item .seller .context .right button.add_to_list {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.page_container .products .item .product-list-item .seller .context .right .ratings {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
 .page_container .products .item .product-list-item .seller .context  .left .verified {
     color: #1dd1a1;
     width: 20px;
@@ -93,6 +117,8 @@ body {
     height: 30px;
     border-radius: 50px;
     margin-right: 7px;
+    background-position: top center;
+    background-size: cover;
 }
 
 .page_container .products .item:last-child .product-list-item {

@@ -1,6 +1,7 @@
 import { ref, watch} from "vue";
 import axios from "axios";
 
+const baseURL: string = import.meta.env.VITE_BASE_URL || "http://localhost:3000";
 
 export const  products : any = ref([])
 export const term = ref<string>("a")
@@ -10,7 +11,7 @@ let timeoutId: ReturnType<typeof setTimeout> | null = null;
 export const searchProducts = async () => {
     const options = {
         method: 'POST',
-        url: `http://18.169.192.75:3000/search/${term.value}`,
+        url: `${baseURL}:3000/search/${term.value}`,
         headers: {'Content-Type': 'application/json'}
     };
 

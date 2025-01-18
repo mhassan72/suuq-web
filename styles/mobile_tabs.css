@@ -1,0 +1,31 @@
+.tabs {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    list-style: none;
+    background: white;
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background: rgb(254,254,254);
+    background: linear-gradient(0deg, rgba(254,254,254,1) 0%, rgba(255,255,255,0) 79%);
+}
+.tabs .container {
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 100;
+    width: 100%;
+    max-width: 600px;
+    margin: 0  auto;
+}
+
+.tabs .tab {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

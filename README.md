@@ -78,9 +78,6 @@
  ## Contributing
  Contributions are welcome! Please adhere to the general guidelines and coding standards outlined above. Open a pull request to propose your changes.
 
- ## Repository
- The source code is available at [Suuq.io Front-End GitHub Repository](https://github.com/mhassan72/suuq-web).
-
  ## License
  Read our [LICENSE](LICENSE) file for details.
 

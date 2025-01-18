@@ -1,0 +1,101 @@
+.mobileNavbar  {
+    /* width: 95%; */
+    margin: 0 auto;
+    font-family: sans-serif;
+    background: #feca57;
+    padding: 16px;
+    padding-bottom: 30px;
+}
+
+.mobileNavbar .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 3vh;
+}
+
+
+.mobileNavbar .top .logo {
+    width: 40px;
+    height: 40px;
+}
+
+.mobileNavbar .search_bar {
+    display: flex;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    width: 90%;
+    border-radius: 50px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 20px;
+    transition: border 0.3s ease;
+    border: 2px solid transparent;
+    margin: 0 auto;
+}
+  
+.mobileNavbar .search_bar:focus-within {
+    border: 2px solid #ff9f43;
+}
+
+ 
+
+.mobileNavbar .search_bar input {
+    border: none;
+    padding: 6px;
+    width: 100%;
+    background: none;
+    outline: none;
+}
+.mobileNavbar .search_bar button {
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    color: gray
+}
+
+.mobileNavbar .search_bar .spinner {
+    animation: spin 2s linear infinite;
+    color: #ff9e43;
+}
+
+.mobileNavbar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* animations  */
+
+
+.fade {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Animations  Here  */
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

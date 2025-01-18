@@ -1,0 +1,168 @@
+.navbar * {
+    transition: all ease-in-out .3s;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid  rgba(233, 233, 233, 0.453);
+    gap: 3px;
+    font-family: sans-serif;
+}
+.navbar .menu_start {
+    display: flex;
+    margin-left: 10px;
+}
+
+.navbar .menu_start .logo {
+    width: 40px;
+    height: 40px;
+}
+
+.navbar .menu_start .links{
+    display: flex;
+    list-style: none;
+    gap: 6px;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+.link_with_dot::after {
+    content: "•"; /* The dot */
+    font-size: 17px; /* Adjust size as needed */
+    vertical-align: top; /* Align to the top */
+    margin-left: 5px; /* Add some spacing between text and dot */
+    margin-top: -10px;
+    color: #ff9f43; /* Change the color as needed */
+}
+
+.link_with_dot_sell::after {
+    content: "•"; /* The dot */
+    font-size: 17px; /* Adjust size as needed */
+    vertical-align: top; /* Align to the top */
+    margin-left: 5px; /* Add some spacing between text and dot */
+    margin-top: -10px;
+    color: #4cd137;
+}
+
+.navbar .menu_start .links  a{
+    text-decoration: none;
+    color: inherit
+}
+
+.navbar .search_bar {
+    display: flex;
+    align-items: center;
+    background: rgba(233, 233, 233, 0.453);
+    width: 70%;
+    border-radius: 50px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 20px;
+    transition: border 0.3s ease;
+    border: 2px solid transparent;
+}
+  
+.navbar .search_bar:focus-within {
+    border: 2px solid #ff9f43;
+}
+
+ 
+
+.navbar .search_bar input {
+    border: none;
+    padding: 6px;
+    width: 100%;
+    background: none;
+    outline: none;
+}
+.navbar .search_bar button {
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    color: gray
+}
+.navbar .menu_end_desktop {
+    margin-right: 10px;
+}
+.navbar .menu_end_desktop .links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar .menu_end_desktop .profile {
+    background: #ff9f43;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+
+.navbar .menu_end_mobile {
+    display: none;
+}
+
+.navbar ul {
+    list-style: none;
+}
+
+.navbar .spinner {
+    animation: spin 2s linear infinite;
+    color: #ff9e43;
+}
+
+.customIcon {
+    width: 30px;
+    color: #353b48;
+}
+.basketSvg {
+    color: #353b48
+}
+.redDot::after {
+    content: "•"; /* The dot */
+    font-size: 22px; /* Adjust size as needed */
+    vertical-align: top; /* Align to the top */
+    margin-left: -8px; /* Add some spacing between text and dot */
+    margin-top: 0;
+    position: relative;
+    top: -10px;
+    color: #e84118;
+}
+
+/* js animimated  */
+.fade {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Animations  Here  */
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

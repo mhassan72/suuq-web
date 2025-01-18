@@ -50,11 +50,11 @@
  ### Installation
  1. Clone the repository:
     ```bash
-    git clone https://github.com/your-org/suuq-frontend.git
+    git clone https://github.com/mhassan72/suuq-web.git
     ```
  2. Navigate to the project directory:
     ```bash
-    cd suuq-frontend
+    cd suuq-web
     ```
  3. Install dependencies:
     ```bash
@@ -78,8 +78,11 @@
  ## Contributing
  Contributions are welcome! Please adhere to the general guidelines and coding standards outlined above. Open a pull request to propose your changes.
 
+ ## Repository
+ The source code is available at [Suuq.io Front-End GitHub Repository](https://github.com/mhassan72/suuq-web).
+
  ## License
- This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+ Read our [LICENSE](LICENSE) file for details.
 
  ## Contact
  For support or inquiries, feel free to reach out at **support@suuq.io**. 📨

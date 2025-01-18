@@ -1,0 +1,114 @@
+body {
+    font-family: sans-serif;
+}
+
+.page_container  {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.page_container .products {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 40px;
+}
+
+
+
+.page_container .products .item .image_container {
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    overflow: hidden;
+    background: #c8d6e5;
+    border-radius: 3px;
+}
+
+.page_container .products .item .context .title {
+    display: flex;
+    align-items:flex-start;
+    justify-content: space-between;
+}
+
+.page_container .products .item .context .title h3 {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.page_container .products .item .context .title .condition {
+    color: #576574;
+}
+
+.page_container .products .item .context .description p {
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    color: #42403ed9;
+}
+
+.page_container .products .item .product-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.page_container .products .item .product-list-item .seller {
+    padding: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.page_container .products .item .product-list-item .seller .context {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.page_container .products .item .product-list-item .seller .context .left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.page_container .products .item .product-list-item .seller .context  .left .verified {
+    color: #1dd1a1;
+    width: 20px;
+    height: 20px;
+}
+
+.page_container .products .item .product-list-item .seller .avatar {
+    background: #c8d6e5;
+    min-width: 30px;
+    min-height: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    margin-right: 7px;
+}
+
+.page_container .products .item:last-child .product-list-item {
+    border-bottom: 1px solid transparent;
+}
+
+.page_container .products .item:first-child .product-list-item {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.035);
+    border-bottom: 1px solid transparent;
+}
+  
+.page_container .products .item .product-list-item:hover {
+    border-radius: 8px;
+    border-bottom: 1px solid transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+  
+  

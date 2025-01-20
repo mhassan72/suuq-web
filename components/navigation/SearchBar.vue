@@ -24,6 +24,6 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { term, loading } from '../../composables/SearchProducts';
+import { term, loading } from '@/composables/SearchProducts';
 
 </script>

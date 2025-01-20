@@ -2,6 +2,33 @@ body {
     font-family: sans-serif;
 }
 
+.spinner {
+    animation: spin 2s linear infinite;
+    color: #303952;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.page {
+    display: flex;
+    justify-content: space-between;
+}
+
+.page .side_menu {
+    width: 400px;
+    min-width: 300px;
+    background: #c8d6e557;
+}
+
+.page .side_menu {}
+
 .page_container  {
     width: 90%;
     margin: 0 auto;

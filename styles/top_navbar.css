@@ -40,7 +40,7 @@
     vertical-align: top; /* Align to the top */
     margin-left: 5px; /* Add some spacing between text and dot */
     margin-top: -10px;
-    color: #ff9f43; /* Change the color as needed */
+    color: #3dc1d3; /* Change the color as needed */
 }
 
 .link_with_dot_sell::after {
@@ -72,7 +72,7 @@
 }
   
 .navbar .search_bar:focus-within {
-    border: 2px solid #ff9f43;
+    border: 2px solid #3dc1d3;
 }
 
  
@@ -103,7 +103,7 @@
 }
 
 .navbar .menu_end_desktop .profile {
-    background: #ff9f43;
+    background: #3dc1d3;
     width: 40px;
     height: 40px;
     border-radius: 50px;

@@ -1,32 +1,51 @@
 <template>
-    <div>
-      <h1>Browse</h1>
-      <input type="search" name="search" id="" v-model="search.term">
-      <button @click="searchApi()">Search</button>
-      {{ search.result.length }}
-    </div>
-</template>
+  <div>
+      <TopNavbar />
+      <NabarTopMobile />
+      <MobileTabs />
+  
+      <div class="page">
+          <div class="side_menu" :class="['fade', !isMobile ? 'show' : 'hidden']">
+              <div class="menu_container">
+                  
+              </div>
+          </div>
+      
+          <main>
+              <div class="page_container">
+                <h1>Hello world</h1>
+                {{ products.products }}
+              </div>
+          </main>
+      
+  
+      </div>
+  
+      
+      
+  </div>
+  </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
-import axios from 'axios'
+import TopNavbar from '@/components/navigation/TopNavbar.vue'
+import MobileTabs from '@/components/navigation/MobileTabs.vue'
+import NabarTopMobile from '@/components/navigation/NabarTopMobile.vue'
+import { useScreenSize } from '@/composables/useScreenSize';
+import { client } from '@/services/ApiClient'
+import { onMounted, ref } from 'vue';
+// import style 
+import '@/styles/products.css'  
 
-const search = ref({
-  term: "",
-  result: []
-})
 
-async function searchApi(){
-  const options = {
-    method: 'POST',
-    url: `http://18.169.192.75:3000/search/${search.value.term}`,
-    headers: {'Content-Type': 'application/json'}
-  };
+const { isMobile } = useScreenSize();
+const products = ref<any>({})
 
-  axios.request(options).then(function (response) {
-    search.value.result = response.data.filteredProducts
-  }).catch(function (error) {
-    console.error(error);
-  });
+async function getProducts() {
+    const response = client.get("GET", "products")
+    products.value = await response
 }
 
+onMounted(async () => {
+    await getProducts()
+})
+  
 </script>

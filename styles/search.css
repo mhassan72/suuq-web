@@ -1,0 +1,15 @@
+.page_container {
+    display: flex;
+    gap: 10px;
+}
+
+.page_container .sidebar {
+    border: 1px solid #dfe4ea;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-width: 300px;
+}
+
+.page_container ul {
+    list-style: none;
+}

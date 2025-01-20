@@ -5,12 +5,12 @@
     <div class="form_login">
       <div class="field">
         <label for="phone">Lambarkaaga</label><br />
-        <input id="phone" type="tel" v-model="userData.phone" />
+        <input id="phone" type="tel" v-model="formData.phone" />
       </div>
 
       <div class="field">
         <label for="sir">Lambar Sireeka</label><br />
-        <input id="sir" type="password" v-model="userData.secret" />
+        <input id="sir" type="password" v-model="formData.secret" />
       </div>
 
       <div class="action">
@@ -18,36 +18,16 @@
       </div>
     </div>
 
-    auth: {{ auth }}
+    formData: {{ formData }}
 
-    <p>Data: {{ userData }}</p>
+    <p>
+      currentUser : {{ currentUser }}
+    </p>
   </section>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-import axios from "axios";
-
-// Define the user data reactive reference
-const auth = ref({ phone: "", secret: "" })
-const userData : any  = ref({});
-
-const submitLogin = async () => {
-
-  const options = {
-    method: 'POST',
-    url: 'http://18.169.192.75:3000/login',
-    headers: {'Content-Type': 'application/json'},
-    data: {phone: '2', secret: '3'}
-  };
-
-  axios.request(options).then(function (response) {
-    userData.value  = response.data
-  }).catch(function (error) {
-    console.error(error);
-  });
-
-};
+import { formData, submitLogin, currentUser } from '@/composables/authenticate'
 </script>
 
 <style scoped>

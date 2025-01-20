@@ -7,10 +7,12 @@
           ></div>
         <div class="context">
           <div class="title">
-            <h3>
-              {{ data.title }}
-              <small>({{ data.condition  }})</small>
-            </h3>
+            <NuxtLink :to="`/product/${data.id}`">
+              <h3>
+                {{ data.title }}
+                <small>({{ data.condition  }})</small>
+              </h3>
+            </NuxtLink>
             <strong class="condition">
                 {{  "$" + price_format(data.price.amount)}}
             </strong>
@@ -18,7 +20,7 @@
 
           <div class="description">
             <p>
-              {{ data.description }}
+              {{ truncateString(data.description, 120) }}
             </p>
           </div>
 
@@ -67,6 +69,7 @@
   </template>
   
 <script setup lang="ts">
+import { truncateString } from '@/composables/Helpers'
   // Props
   defineProps<{
     data: any;

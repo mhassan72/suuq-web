@@ -7,20 +7,21 @@ export const products = ref({
     products: []
 });
 
+export const rangeValues = ref<[number, number]>([0, 1000]);
 export const filteredProducts : any = ref<any[]>([]);
 
 // Initialize filters state
 export const filters = ref<FilterOptions>({
   condition: "",
   rating: "",
-  minPrice: 0,
-  maxPrice: 1000,
+  minPrice: rangeValues.value[0],
+  maxPrice: rangeValues.value[1],
 });
 
 // Valid price range as a computed property
 export const validPriceRange = computed(() => ({
-  minPrice: filters.value.minPrice,
-  maxPrice: filters.value.maxPrice,
+  minPrice: rangeValues.value[0],
+  maxPrice: rangeValues.value[1],
 }));
 
 // Function to filter products based on the selected filters
@@ -44,7 +45,7 @@ function filterProducts() {
 
     // Filter by price range
     const productPrice = product.price?.amount || 0;
-    if (productPrice < filters.value.minPrice || productPrice > filters.value.maxPrice) {
+    if (productPrice < rangeValues.value[0] || productPrice > rangeValues.value[1]) {
       return false;
     }
 
@@ -60,7 +61,7 @@ export async function products_list() {
 
 // Watcher for syncing minPrice and maxPrice, and applying filters
 watch(
-  () => [filters.value.minPrice, filters.value.maxPrice, filters.value.condition, filters.value.rating],
+  () => [rangeValues.value[0], rangeValues.value[1], filters.value.condition, filters.value.rating],
   () => {
     // Sync minPrice and maxPrice if needed
     if (filters.value.minPrice > filters.value.maxPrice) {

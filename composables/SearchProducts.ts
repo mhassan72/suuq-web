@@ -3,7 +3,7 @@ import { client } from '@/services/ApiClient'
 
 
 export const  searchResult : any = ref<any>([])
-export const term = ref<string>("a")
+export const term = ref<string>("")
 export const loading = ref(false)
 let timeoutId: ReturnType<typeof setTimeout> | null = null;
 

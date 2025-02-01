@@ -14,7 +14,7 @@
           <main>
               <div class="page_container">
                 <h1>Hello world</h1>
-                {{ products.products }}
+                <!-- {{ products.products }} -->
               </div>
           </main>
       

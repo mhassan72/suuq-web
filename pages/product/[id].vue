@@ -13,7 +13,7 @@
   </div>
 
   <div v-else-if="product" class="product-view">
-    <DetailsNavbar title="Faah Faahin Dheeri ah" :is-favorite="isInFavorites" @back="handleBack"
+    <DetailsNavbar title="Faah Faahin Dheeri ah" :is-favorite="isInFavorites(product.id)" @back="handleBack"
       @favorite="toggleFavorite(product)" />
 
     <div class="product-page">
@@ -31,6 +31,7 @@
         {{ product.seller.name }}
 
         {{  favoritesCount }}
+        <Spacer />
       </div>
     </div>
 
@@ -46,6 +47,7 @@ import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { client } from '@/services/ApiClient';
 import ProductImageSlider from '@/components/products/ImageSlider.vue';
+import Spacer from '@/components/products/Spacer.vue'
 import DetailsNavbar from '@/components/navigation/DetailsNavbar.vue';
 import type { Product } from '@/types'
 import { 
@@ -69,8 +71,7 @@ const product : any = ref<Product | null>(null);
 const loading = ref<boolean>(true);
 const error = ref<string | null>(null);
 
-const isFavorite = isInFavorites.value(product.value?.id);
-
+// const isFavorite = isInFavorites.value(product.value?.id);
 
 useHead({
   title: computed(() => product.value?.title || 'Product Details'),

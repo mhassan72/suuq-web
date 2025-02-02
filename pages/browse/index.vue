@@ -30,6 +30,7 @@
                 </div>
             </main>
         </div>
+        <Spacer />
         
     </div>
     
@@ -44,6 +45,8 @@ import MobileFilter from '@/components/navigation/MobileFilter.vue'
 import { useScreenSize } from '@/composables/useScreenSize';
 import { products, filteredProducts, products_list } from '@/composables/Products'
 import ProductListItem from '@/components/products/ProductListItem.vue'
+import Spacer from '@/components/products/Spacer.vue'
+
 
 import '@/styles/search.css'
 import '@/styles/products.css'

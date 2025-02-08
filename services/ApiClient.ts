@@ -1,26 +1,33 @@
-import axios,{ type AxiosRequestConfig, type AxiosResponse, AxiosError } from "axios";
+// services/ApiClient.ts
+import axios, { type AxiosRequestConfig, type AxiosResponse, AxiosError } from "axios";
 import { baseURL } from "@/config/environment";
 
+// Add response type interface
+interface ApiResponse<T = any> {
+  data: T;
+  message?: string;
+  user?: any;
+  token?: string;
+}
+
 export default class APIClient {
-  public BaseUrl = baseURL
+  public BaseUrl = baseURL;
 
   constructor() {
     this.BaseUrl = baseURL;
   }
 
-  async get(
+  async request<T = any>(
     method: string = "GET",
     url: string,
     data?: any,
     token?: string,
     headers: Record<string, string> = { "Content-Type": "application/json" }
-  ): Promise<any> {
-    // Merge headers with token if provided
+  ): Promise<ApiResponse<T>> {
     if (token) {
       headers["Authorization"] = `${token}`;
     }
 
-    // Build the Axios request config
     const options: AxiosRequestConfig = {
       method: method,
       url: `${this.BaseUrl}${url}`,
@@ -29,33 +36,42 @@ export default class APIClient {
     };
 
     try {
-      const response: AxiosResponse = await axios.request(options);
+      const response: AxiosResponse<ApiResponse<T>> = await axios.request(options);
       return this.success(response);
     } catch (err) {
       return this.error(err as AxiosError);
     }
   }
 
-  private success(response: AxiosResponse): any {
+  private success<T>(response: AxiosResponse<ApiResponse<T>>): ApiResponse<T> {
     console.log("Request Successful:", response.data);
     return response.data;
   }
 
-  private error(error: AxiosError): any {
+  private error(error: AxiosError): never {
     console.error("Request Failed:", error.message);
+    
+    // Convert Axios error to application error
+    const errorData = error.response?.data as { message?: string } || {};
+    throw new Error(errorData.message || "API request failed");
+  }
 
-    if (error.response) {
-      // Server responded with a status outside the 2xx range
-      console.error("Response Data:", error.response.data);
-      console.error("Response Status:", error.response.status);
-    } else if (error.request) {
-      // Request was made but no response was received
-      console.error("No Response Received:", error.request);
-    }
+  // Add convenience methods
+  async get<T = any>(url: string, params?: any, token?: string) {
+    return this.request<T>("GET", url, undefined, token, { params });
+  }
 
-    throw error; // Re-throw the error for the caller to handle
+  async post<T = any>(url: string, data?: any, token?: string) {
+    return this.request<T>("POST", url, data, token);
+  }
+
+  async put<T = any>(url: string, data?: any, token?: string) {
+    return this.request<T>("PUT", url, data, token);
+  }
+
+  async delete<T = any>(url: string, data?: any, token?: string) {
+    return this.request<T>("DELETE", url, data, token);
   }
 }
 
-
-export const client = new APIClient()
+export const client = new APIClient();

@@ -1,0 +1,104 @@
+:root {
+    --color-primary: #778beb;
+    --color-text: #213547;
+    --color-text-soft: #666;
+    --color-border: #ddd;
+    --color-background-soft: #f8f8f8;
+    --color-error: #c44569;
+    --color-error-bg: #f8d7da;
+    --color-background-mute: #f0f0f0;
+  }
+
+  .login-section {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+  
+  .login-title {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+  }
+  
+  .login-form {
+    background: var(--color-background-soft);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  input {
+    width: 100%;
+  }
+  
+  .input-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+  }
+  
+  .help-text {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--color-text-soft);
+  }
+  
+  .form-actions {
+    margin-top: 2rem;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  
+  .submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .submit-button[aria-busy="true"] {
+    position: relative;
+  }
+  
+  .error-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--color-error-bg);
+    color: var(--color-error);
+    border-radius: 4px;
+  }
+  
+  .debug-info {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--color-background-mute);
+    border-radius: 4px;
+    font-family: monospace;
+  }

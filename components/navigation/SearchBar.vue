@@ -6,7 +6,16 @@
             </svg>
         </button>
 
-        <input type="text" placeholder="Raadi Alaab" v-model="term">
+        <!-- <input type="text" placeholder="Raadi Alaab" v-model="term"> -->
+        <div class="input-container">
+            <input type="text" v-model="term" 
+                   @focus="handleFocus" 
+                   @blur="handleBlur">
+            <label :class="{ hidden: term || isFocused }">
+                <span :class="{ 'animated-text': shouldAnimate }">Maxaad jeclaan leheed in  aan kula raadiyo?</span>
+                <span :class="{ cursor: shouldAnimate }"></span>
+            </label>
+        </div>
 
         <button v-if="loading">
             <svg class="spinner" width="26" height="26"  viewBox="0 0 32 32">
@@ -23,7 +32,114 @@
 
     </div>
 </template>
-<script lang="ts" setup>
-import { term, loading } from '@/composables/SearchProducts';
 
+<script lang="ts" setup>
+    import { term, loading } from '@/composables/SearchProducts';
+    import { ref, watch, onMounted } from 'vue';
+
+    const isFocused = ref(false);
+    const shouldAnimate = ref(false);
+
+    const handleFocus = () => {
+        isFocused.value = true;
+        shouldAnimate.value = false;
+    };
+
+    const handleBlur = () => {
+        isFocused.value = false;
+        checkAnimation();
+    };
+
+    const checkAnimation = () => {
+        shouldAnimate.value = !term.value && !isFocused.value;
+    };
+
+    // Watch for changes in term
+    watch(term, checkAnimation);
+
+    // Initial check when component mounts
+    onMounted(checkAnimation);
 </script>
+
+<style scoped>
+.input-container {
+    position: relative;
+    flex-grow: 1;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    /* Add other existing input styles */
+}
+
+label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    transition: 0.2s all ease;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background: #666;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+}
+
+@keyframes typing {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 100%; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.animated-text {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2.5s steps(30, end);
+    position: relative;
+    display: inline-block;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background: #666;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Restart animation when class is re-added */
+.animated-text {
+    animation-iteration-count: 1;
+}
+</style>

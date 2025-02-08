@@ -42,3 +42,10 @@ export interface Product {
     media: ProductMedia;
     seller: ProductSeller;
 }
+  
+export interface ProductsState {
+    allProducts: Product[];
+    filteredProducts: Product[];
+    rangeValues: [number, number];
+    filters: FilterOptions;
+}

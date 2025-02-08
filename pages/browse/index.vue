@@ -13,7 +13,12 @@
                 <!-- <h1>Search Term : {{ route.query.term }}</h1> -->
                 <div class="products">
 
+                    [ {{ filteredProducts.length }} Shey]
+
                     <ul class="products_list"  v-if="filteredProducts.length < 1">
+                        <div class="noList">
+                            <h1>Sorry We couldnt find any products</h1>
+                        </div>
 
                         <li class="item" v-for="(item, index) in products.products" :key="index">
                             <ProductListItem :data="item" />
@@ -21,7 +26,8 @@
 
                     </ul>
 
-                    <ul class="products_list" v-if="filteredProducts.length > 0">
+                    <ul class="products_list" v-else>
+                        
                         <li class="item" v-for="(item, index) in filteredProducts" :key="index">
                             <ProductListItem :data="item" />
                         </li>
@@ -39,15 +45,15 @@
 import { onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import TopNavbar from '@/components/navigation/TopNavbar.vue'
+import ProductListItem from '@/components/products/ProductListItem.vue'
 import MobileTabs from '@/components/navigation/MobileTabs.vue'
 import NabarTopMobile from '@/components/navigation/NabarTopMobile.vue'
 import MobileFilter from '@/components/navigation/MobileFilter.vue'
 import { useScreenSize } from '@/composables/useScreenSize';
 import { products, filteredProducts, products_list } from '@/composables/Products'
-import ProductListItem from '@/components/products/ProductListItem.vue'
-import Spacer from '@/components/products/Spacer.vue'
+import  Spacer  from '@/components/products/Spacer.vue'
 
-
+// import '@/styles/bootstrap.css'   
 import '@/styles/search.css'
 import '@/styles/products.css'
 

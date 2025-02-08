@@ -47,7 +47,7 @@ import '@/styles/products.css'
 const products = ref<any>({})
 
 async function getProducts() {
-    const response = client.get("GET", "products")
+    const response = client.get("products")
     products.value = await response
 }
 

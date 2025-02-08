@@ -55,7 +55,7 @@ function filterProducts() {
 
 // Fetch products and store in products.value
 export async function products_list() {
-  const response: any = await client.get("GET", "products");
+  const response: any = await client.get("products");
   products.value = response;
 }
 
